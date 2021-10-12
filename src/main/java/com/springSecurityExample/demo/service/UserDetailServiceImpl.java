@@ -26,7 +26,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		//2.比較密碼(存入資料庫的通常是已經加密的 所以比較加密級的就可以了)，如果匹配成功返回UserDetails
 		String password = passwordEncoder.encode("123");
 		return new User(username, password, 
-				AuthorityUtils.commaSeparatedStringToAuthorityList("admin,normal"));
+				//在P017會用到賦予的這些權限 嚴格區分大小寫
+//				AuthorityUtils.commaSeparatedStringToAuthorityList("admin,normal"));
+				//P018 除了權限外 還可以賦予使用者角色 而角色有命名規定，必須為"ROLE_XXX"，XXX為自定義，
+				//前面則必須為ROLE_開頭
+				AuthorityUtils.commaSeparatedStringToAuthorityList("admin,normal,ROLE_role1,/,main.html"));
 
 	}
 
