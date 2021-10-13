@@ -78,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//P020底下上行 與上面是相同意思 可以進入access方法底層去看  是一樣的
 				.antMatchers("/login.html").access("permitAll")
 				.antMatchers("/error.html").permitAll()
-				
+				.antMatchers("/logout").permitAll()
 				// 指定放行的頁面
 				//P013 antMatcher() 參數是不定向參數，每個參數都是一個ant表示式，用於配對URL規則，規則如下
 				//也可以如底下regex那樣指定HttpMethod
